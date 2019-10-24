@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t diiegg/multi-docker -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run diiegg/multi-docker npm test -- --coverage
+
+after_succes:
+  - docker build -t diiegg/multi-client ./client
+  - docker build -t diiegg/multi-nginx ./nginx
+  - docker build -t diiegg/multi-server ./server
+  - docker build -t diiegg/multi-worker ./worker
