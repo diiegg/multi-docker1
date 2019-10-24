@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t diiegg/multi-docker -f ./client/Dockerfile.dev ./client
+  - docker build -t diiegg/multi-docker1 -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run diiegg/multi-docker npm test -- --coverage
+  - docker run diiegg/multi-docker1 npm test -- --coverage
 
 after_succes:
   - docker build -t diiegg/multi-client ./client
