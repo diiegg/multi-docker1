@@ -14,3 +14,11 @@ after_succes:
   - docker build -t diiegg/multi-nginx ./nginx
   - docker build -t diiegg/multi-server ./server
   - docker build -t diiegg/multi-worker ./worker
+
+  #log in docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - docker push diiegg/multi-client
+  - docker push diiegg/multi-nginx
+  - docker push diiegg/multi-server
+  - docker push diiegg/multi-worker
+
