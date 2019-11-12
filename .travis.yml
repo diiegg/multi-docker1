@@ -16,7 +16,7 @@ after_success:
   - docker build -t diiegg/multi-worker ./worker
 
   #log in docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push diiegg/multi-client
   - docker push diiegg/multi-nginx
   - docker push diiegg/multi-server
