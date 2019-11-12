@@ -9,7 +9,7 @@ before_install:
 script:
   - docker run -e CI=true diiegg/multi-docker1 npm test
 
-after_succes:
+after_success:
   - docker build -t diiegg/multi-client ./client
   - docker build -t diiegg/multi-nginx ./nginx
   - docker build -t diiegg/multi-server ./server
